@@ -46,16 +46,24 @@
 # =============================================================================
 
 def grade_system(score):
-    if score > 80 and score < 100:
-        return 'GRADE: A'
-    elif score > 70:
-        return 'GRADE: B'
-    elif score > 60:
-        return 'GRADE: C'
-    elif score > 50:
-        return 'GRADE: D'
+    if score > 100 or score < 0:
+        return None
+    elif score >= 80 :
+        return 'A'
+    elif score >= 70:
+        return 'B'
+    elif score >= 60:
+        return 'C'
+    elif score >= 50:
+        return 'D'
     else:
-        return 'GRADE: F'
+        return 'F'
 
 
 score_input = int(input('Enter student score (0-100): '))
+result = grade_system(score_input)
+
+if result is None:
+    print('Error: Score must be between 0 and 100.')
+else:
+    print(f'Grade: {result}')
