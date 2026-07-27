@@ -46,5 +46,5 @@ def prime_checker(number):
 
 
 user_input = int(input('Enter a number: '))
-prime = prime_checker(user_input)
-print(prime)
+result = prime_checker(user_input)
+print(result)

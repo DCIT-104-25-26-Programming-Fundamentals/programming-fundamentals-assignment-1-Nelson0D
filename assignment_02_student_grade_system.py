@@ -45,3 +45,17 @@
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
 
+def grade_system(score):
+    if score > 80 and score < 100:
+        return 'GRADE: A'
+    elif score > 70:
+        return 'GRADE: B'
+    elif score > 60:
+        return 'GRADE: C'
+    elif score > 50:
+        return 'GRADE: D'
+    else:
+        return 'GRADE: F'
+
+
+score_input = int(input('Enter student score (0-100): '))
