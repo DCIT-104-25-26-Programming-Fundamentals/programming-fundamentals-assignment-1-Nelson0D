@@ -68,10 +68,10 @@ print(f'Fibonacci sequence: {' '.join(str(x) for x in result)}')
 checker_input = int(input('Enter a number to check: '))
 
 def is_fibonacci(number):
-    a, b = 0, 1
-    while a < number:
-        a, b = b, a + b
-    return a == number
+    first, next = 0, 1
+    while first < number:
+        first, next = next, first + next
+    return first == number
 
 
 final_result = is_fibonacci(checker_input)
