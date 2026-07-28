@@ -78,4 +78,69 @@
 # =============================================================================
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
+commands = ['Add tasks', 'View tasks', 'Delete Task', "Quit"]
 
+choice = None
+
+tasks = []
+
+
+
+def add_task():
+    description = str(input('Enter task: '))
+    tasks.append(description)
+    print (f'Task added: "{description}"')
+    return '------------------------'
+
+def view_tasks():
+     if not tasks:
+          print('No tasks yet!')
+          return '------------------------'
+     print('Your Tasks: ')
+     for i in tasks:
+          print(f'{tasks.index(i) + 1}. {i}')
+     return '------------------------'
+
+def delete_task():
+    if not tasks:
+              print('No tasks yet!')
+              return '------------------------'
+    for i in tasks:
+               print(f'{tasks.index(i) + 1}. {i}')
+    indexOf = int(input('Enter task number to remove: '))
+    for x in tasks:
+         if indexOf == tasks.index(x) + 1:
+            tasks.pop(indexOf-1)
+            return f'Task "{x}" has been removed'
+    print ('Error: Task does not exist.')
+    return '------------------------'
+
+def quit():
+     print('Exiting application. Goodbye...')
+     print('------------------------')
+     exit()
+
+
+
+
+while True:
+    for i in commands:
+        print(f'{commands.index(i) + 1} {i}')
+    print ('------------------------')
+    choice_input = int(input('Enter a choice (1-4): '))
+
+
+    if choice_input == 1:
+        result = add_task()
+        print(result)
+    elif choice_input == 2:
+         result = view_tasks()
+         print(result)
+    elif choice_input == 3:
+        result = delete_task()
+        print(result)
+    elif choice_input == 4:
+         result = quit()
+    else:
+         print('Error: Invalid command input (1-4). Try again \n ------------------------')
+         
