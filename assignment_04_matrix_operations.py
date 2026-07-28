@@ -60,3 +60,75 @@
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
 
+def matrix_input (rows, columns):
+    matrix = []
+    for i in range(rows):
+            row = list(map(int, input(f'Enter row {i + 1}: ').split()))
+            matrix.append(row)
+    return matrix
+
+def matrix_print (matrix):
+    for row in matrix:
+        for val in row:
+            print(val, end=" ")
+        print()
+
+
+def matrix_transpose(matrix, rows, columns):
+    result = []
+    for i in range(columns):
+        new_row = []
+        for n in range(rows):
+            new_row.append(matrix[n][i])
+        result.append(new_row)
+    return result
+
+def matrix_addition(A, B, rows, columns):
+    result = []
+    for i in range(rows):
+        new_row = []
+        for n in range(columns):
+            new_row.append(A[i][n] + B[i][n])
+        result.append(new_row)
+    return result
+
+
+def matrix_multiplicaton(A, B, m, n, p):
+    result = []
+    for i in range(m):
+        new_row = []
+        for j in range(p):
+            total = 0
+            for x in range(n):
+                total += A[i][x] + B[x][j]
+            new_row.append(total)
+        result.append(new_row)
+    return result
+
+#PART A
+rows = int(input('Enter number of rows: '))
+columns = int(input('Enter number of columns: '))
+matrix = matrix_input(rows, columns)
+print('Transpose of Matrix: ')
+matrix_print(matrix_transpose(matrix, rows, columns))
+
+#PART B
+rows = int(input("Enter number of rows: "))
+columns = int(input("Enter number of columns: "))
+print("Matrix A:")
+A = matrix_input(rows, columns)
+print("Matrix B:")
+B = matrix_input(rows, columns)
+print("Sum:")
+matrix_print(matrix_addition(A, B, rows, columns))
+
+#PART C
+m = int(input("Enter rows of A: "))
+n = int(input("Enter columns of A (Should be same as rows of B): "))
+p = int(input("Enter columns of B: "))
+print("Matrix A:")
+A = matrix_input(m, n)
+print("Matrix B:")
+B = matrix_input(n, p)
+print("Product:")
+matrix_print(matrix_multiplicaton(A, B, m, n, p))
