@@ -68,3 +68,86 @@
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
 
+commands = ['Addition', 'Subtraction', 'Multiplication', 'Division', 'Modulus', 'Exponentiation', 'Quit']
+
+def addition():
+    first = int(input('Enter first number: '))
+    second = int(input('Enter second number: '))
+    value = first + second
+    print (f'{first} + {second} = {value}')
+    return '-' * 25
+    
+
+def subtraction():
+    first = int(input('Enter first number: '))
+    second = int(input('Enter second number: '))
+    value = first - second
+    print (f'{first} - {second} = {value}')
+    return '-' * 25
+
+def multiplication():
+    first = int(input('Enter first number: '))
+    second = int(input('Enter second number: '))
+    value = first * second
+    print (f'{first} * {second} = {value}')
+    return '-' * 25
+
+def division():
+    first = int(input('Enter first number: '))
+    second = int(input('Enter second number: '))
+    if second == 0:
+         return 'Error: Cannot divide by 0.'
+    value = round(first / second, 2)
+    print (f'{first} / {second} = {value}')
+    return '-' * 25
+
+def modulus():
+    first = int(input('Enter first number: '))
+    second = int(input('Enter second number: '))
+    value = first % second
+    print (f'{first} mod {second} = {value}')
+    return '-' * 25
+
+def exponentiation():
+    first = int(input('Enter first number: '))
+    second = int(input('Enter second number: '))
+    value = first ** second
+    print (f'{first} ** {second} = {value}')
+    return '-' * 25
+
+def quit():
+     print('Exiting application. Goodbye...')
+     print('------------------------')
+     exit()
+
+
+while True:
+
+    for i in commands:
+              print(f'{commands.index(i) + 1} {i}')
+    print ('------------------------')
+    choice_input = int(input('Enter a choice (1-7): '))
+
+    if choice_input == 1:
+        result = addition()
+        print(result)
+    elif choice_input == 2:
+         result = subtraction()
+         print(result)
+    elif choice_input == 3:
+        result = multiplication()
+        print(result)
+    elif choice_input == 4:
+            result = division()
+            print(result)
+    elif choice_input == 5:
+            result = modulus()
+            print(result)
+    elif choice_input == 6:
+            result = exponentiation()
+            print(result)
+    elif choice_input == 7:
+         result = quit()
+    else:
+         print('Error: Invalid command input (1-7). Try again \n ------------------------')
+         
