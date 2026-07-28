@@ -90,3 +90,82 @@
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
 
+commands = ['Add student', 'Display all students', 'Calculate average score', "Quit"]
+
+choice = None
+
+students = []
+
+
+def add_student():
+    student_name = str(input('Student Name: '))
+    student_id = int(input('Student ID: '))
+    num_scores = int(input('How many scores? '))
+    scores = []
+
+    for i in range(1, num_scores + 1):
+          score_values = int(input(f'Enter number {i}: '))
+          scores.append(score_values)
+    student = {
+          'name': student_name.capitalize(),
+        'id': student_id,
+        'scores': scores
+    }
+    students.append(student)
+    print(f'Student "{student_name}" added succesfully.')
+    return '--------------------------------------------'
+
+def view_all_students():
+    if not students:
+          print('No student has been added yet!')
+          return '------------------------'
+    print('-' * 70)
+    print(f'{"Names": <15} {"ID": <15} {"Scores": <15} {"Average": <15}')
+    
+    for i in students:
+           sum_val = 0
+           for n in i['scores']:
+                sum_val += n
+           average = round(sum_val / len(i['scores']), 2)
+           str_scores = ', '.join(str(s) for s in i['scores'])
+           print('-'*70)
+           print(f'{i["name"]: <15}  {i["id"]: <15}{str_scores: <15} {average: <15}')
+    return '-' * 70
+
+def calculate_average():
+    student_id = int(input('Enter student ID: '))
+    for i in students:
+         if i['id'] == student_id:
+            sum_val = 0
+            for n in i['scores']:
+                 sum_val += n
+            average = round(sum_val / len(i['scores']), 2)
+            return(f"{i["name"]}'s average score: {average}")
+    return ('Error, ID does not exist')
+
+def quit():
+     print('Exiting application. Goodbye...')
+     print('------------------------')
+     exit()
+
+while True:
+
+    for i in commands:
+              print(f'{commands.index(i) + 1} {i}')
+    print ('------------------------')
+    choice_input = int(input('Enter a choice (1-4): '))
+
+    if choice_input == 1:
+        result = add_student()
+        print(result)
+    elif choice_input == 2:
+         result = view_all_students()
+         print(result)
+    elif choice_input == 3:
+        result = calculate_average()
+        print(result)
+    elif choice_input == 4:
+         result = quit()
+    else:
+         print('Error: Invalid command input (1-4). Try again \n ------------------------')
+         
