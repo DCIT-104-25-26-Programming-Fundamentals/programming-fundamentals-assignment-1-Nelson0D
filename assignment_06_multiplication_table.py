@@ -55,3 +55,32 @@
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
 
+#Part A
+
+input_1 = int(input('Enter a number for the multiplication table: '))
+if input_1 <= 0:
+    print('Error: Number must be a positive integer')
+    exit()
+multiplication_ans = []
+
+def multiplication_gen(input_1):
+    print(f'Multiplication table for {input_1}: ')
+    for i in range(1, 13):
+        new_value = input_1 * i
+        print(f'{input_1} x {i} = {new_value} ')
+    return ''
+result = multiplication_gen(input_1)
+print(result)
+
+
+#Part B
+input_2 = int(input('Enter a number for the multiplication table: '))
+if input_2 <= 0:
+    print('Error: Number must be a positive integer: ')
+    exit()
+
+for n in range(1, input_2):
+    value = multiplication_gen(n)
+    print(value)
+    print('---------------')
+
